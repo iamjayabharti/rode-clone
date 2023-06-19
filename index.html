@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <title>Rode-Microphone-clone</title>
+</head>
+
+<body class="">
+    <!-------------------------------------- Header------------------------------ -->
+
+    <div class="md:border md:flex items-center md:justify-between  ">
+        <div class="flex flex-row gap-[6px] items-center  md:ml-[150px] ">
+            <div>
+                <i class="fa-solid fa-location-dot text-gray-600 ml-20 md:ml-0 mt-5 md:mt-0  "></i>
+            </div>
+            <div>
+                <h5 class="text-gray-700 after:content-['🢓'] after:ml-1 mt-5 md:mt-0">EN</h5>
+
+            </div>
+        </div>
+
+        <div class="mr-[150px] hidden md:block">
+            <i class="fa-solid fa-user text-gray-600"></i>
+        </div>
+    </div>
+
+    <!-- ----------------------------------Navbar---------------------------------- -->
+
+    <div class="flex items-center justify-around  sticky top-0 md:bg-white bg-[#f4f9fa]  md:pt-8  pb-7">
+        <div class="">
+
+            <img src="data:image/png;base64,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 "
+                alt="" class="w-[100px]  bg-[#f8f9fa]   md:ml-0 ">
+        </div>
+
+        <div class="flex flex-row items-center  gap-[30px] text-[20px] font-semibold text-gray-500">
+            <p class="hidden md:block">Products</p>
+            <p class="hidden md:block">User Guides</p>
+            <p class="hidden md:block">Solutions</p>
+            <p class="hidden md:block">Apparel</p>
+            <p class="hidden md:block">Support</p>
+        </div>
+        <div>
+            <i class="fa-solid fa-magnifying-glass  mr-5 md:mr-0  "></i>
+        </div>
+
+    </div>
+    <!-- --------------------------------------Resolution------------------------------ -->
+
+    <area shape="" coords="" href="" alt="">
+    <div
+        class="bg-black text-white items-center   md:bg-[url('/images/hero-1.jpeg')] bg-center bg-no-repeat bg-top object-cover w-[800px]  md:w-full h-[700px]">
+
+        <div>
+            <img src="/images/hero-1.jpeg" alt class="md:hidden h-[320px] w-full object-cover object-right">
+        </div>
+
+
+        <div class="  md:pt-40 pt-4 md:ml-[600px]  ">
+
+            <div>
+                <img src="/images/RODECasterProII_PL_PI_01.svg" alt="" class=" w-[490px] md:w-[500px] md:ml-[130px] ">
+            </div>
+
+            <div class=" mr-[300px] md:mr-0  ">
+
+
+                <h2 class="text-white mt-5  text-[30px] text-center font-semibold  ">The Revolution is Here</h2>
+                <p class="md:text-[17px] text-[15px] mt-5  text-center text-gray-300   ">The RODECaster Pro II is the world's most
+                    powerful
+                    all-in-one <br>audio solution for streamers,podcasters,musicians,and <br>creators. Take your content
+                    to the next level.</p>
+
+                <div class="flex items-center gap-10 mt-5 ml-[100px] md:ml-0  ">
+                    <p class="text-[#ac9870] text-[20px] md:ml-[200px] font-semibold">LEARN MORE ></p>
+                    <button
+                        class="bg-[#ac9870] border-[#ac9870]  hover:bg-white text-white hover:text-[#ac9870] rounded-full border px-6 py-1 text-lg font-semibold">BUY
+                        NOW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- ------------------------------------NTH-100--------------------------------- -->
+    <div
+        class=" md:bg-[url('/images/hero-2.jpeg')] md:bg-center bg-no-repeat bg-top md:object-cover md:w-full md:h-[700px]">
+
+
+
+
+
+
+
+
+        <div class="md:mr-[550px]  md:pt-56 pt-10   ">
+
+            <div>
+                <img src="/images/NTH-100_PL_P_RGB_01.svg" alt="" class="md:w-[500px] w-[400px] md:ml-[130px] ml-10">
+            </div>
+
+            <h2 class="text-black mt-5 md:text-[25px] text-[27px] text-center md:ml-0 font-semibold ">
+                Your search for
+                the perfect headphones is <br> over</h2>
+            <p class="md:text-[17px] text-[15px] text-center  text-gray-500 mt-5 "> Experience sounds like never brfore
+                with the
+                NTH-100s. Exceptional <br>sonuc performance , superior comfort and iconic looks that inspires <br>
+                creativity.
+            </p>
+
+            <div class="flex items-center gap-10 mt-5 ml-[100px] md:ml-[250px]">
+                <p class="text-[#ac9870] text-[20px]  font-semibold">LEARN MORE ></p>
+                <button
+                    class="bg-[#ac9870] border-[#ac9870] hover:bg-white text-white hover:text-[#ac9870] rounded-full border px-6 py-1 text-lg font-semibold">BUY
+                    NOW</button>
+            </div>
+        </div>
+
+
+
+        <!-- ------------------------------------------NT-USB-------------------------------- -->
+
+        <div class="bg-[url('/images/hero-3.jpeg')]  bg-center bg-no-repeat bg-top object-cover mt-20 w-full h-[400px] md:h-[700px]">
+            <div class=" md:ml-[700px] md:pt-40 pt-4   ">
+
+                <div class="mt-[60px]">
+                    <img src="/images/NT-USB_PL_P_01.svg" alt="" class="w-[500px] md:ml-[70px] ">
+                </div>
+
+                <h2 class="text-black mt-5 text-[23px] font-semibold text-center ">
+                    Studio-Quality
+                    Recording , Made simple</h2>
+                <p class="md:text-[17px] text-[16px] md:ml-5 text-gray-600 mt-5 text-center ">The NT-USB is a
+                    studio
+                    quality condenser microphone that <br>offers impeccable audio , elegant looks and premium
+                    features all
+                    in <br>an easy-to-use factor , The NT-USB will have you sounding like <br>a pro in seconds. </p>
+
+                <div class="flex items-center gap-10 ml-[100px] md:ml-[170px] mt-5">
+                    <p class="text-[#ac9870] text-[20px] font-semibold">LEARN MORE ></p>
+                    <button
+                        class="bg-[#ac9870] hover:bg-white text-white hover:text-[#ac9870] rounded-full border px-6 py-1 text-lg font-semibold">BUY
+                        NOW</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- -----------------------------------------POD MIC---------------------------------- -->
+
+        <div
+            class=" bg-purple-500 md:-none md:bg-[url('/images/hero-4.jpeg')]  bg-center bg-no-repeat bg-top object-cover w-full h-[700px]">
+            <div>
+                <img src="/images/hero-4.jpeg" alt="" class="md:hidden h-[320px] w-full object-cover object-right">
+            </div>
+
+            <div class="  md:pt-40 pt-4   ">
+
+
+                <div>
+                    <img src="/images/PodMic_PL_PI_01.svg" alt="" class=" mr-20 md:ml-[120px] w-[500px] ">
+                </div>
+
+                <div class="md:mr-[600px]">
+
+                    <h2 class="text-white mt-10 text-[25px] font-semibold text-center ">Studio-Quality
+                        Recording , Made simple</h2>
+                    <p class="md:text-[17px] text-[16px] md:ml-5 text-gray-300 mt-10 text-center ">The NT-USB is a
+                        studio
+                        quality condenser microphone that <br>offers impeccable audio , elegant looks and premium
+                        features
+                        all
+                        in <br>an easy-to-use factor , The NT-USB will have you sounding like <br>a pro in seconds.
+                    </p>
+                </div>
+                <div class="flex items-center gap-10 mt-10 ml-20 md:ml-[220px] ">
+                    <p class="text-[#ac9870] text-[20px] font-semibold">LEARN MORE ></p>
+                    <button
+                        class="bg-[#ac9870] hover:bg-white hover:text-[#ac9870] text-white rounded-full border border-[#ac9870] px-6 py-1 text-lg font-semibold">BUY
+                        NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- -----------------------------------------Wireless GO II------------------------------------ -->
+
+        <div
+            class=" bg-black md:bg-[url('/images/hero-5.jpeg')] bg-center bg-no-repeat bg-top object-cover w-full h-[700px]">
+
+
+            <div>
+                <img src="/images/hero-5.jpeg" alt="" class="md:hidden h-[320px] w-full object-cover object-left">
+            </div>
+
+
+
+
+            <div class="md:ml-[700px] md:pt-56 pt-4   ">
+
+                <div>
+                    <img src="/images/WIGO_II_PL_PI_01.svg" alt="" class=" md:ml-[70px] w-[500px] ">
+                </div>
+
+                <h2 class="text-white mt-10 text-[25px] font-semibold text-center ">Next
+                    Generation
+                    Wireless Audio</h2>
+                <p class="text-[17px]  text-gray-300 mt-10 text-center ">The Wireless
+                    GO II is the
+                    world's most powerful and versatile <br>wireless Microphone. With an unparalleled feature
+                    set and ultra-
+                    <br> compact form factor ,this is next generation wireless audio for <br>every creator
+                    </ultra-br>
+                </p>
+
+                <div class="flex items-center gap-10 mt-10 ml-20 md:ml-[170px]">
+                    <p class="text-[#ac9870] text-[20px] font-semibold">LEARN MORE ></p>
+                    <button
+                        class="bg-[#ac9870] hover:bg-white hover:text-[#ac9870]  text-white rounded-full border border-[#ac9870] px-6 py-1 text-lg font-semibold">BUY
+                        NOW</button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- -----------------------------------------NT-USB-mini--------------------------------------------- -->
+
+        <div
+            class=" bg-gray-700 md:bg-[url('/images/hero-6.jpeg')] bg-center bg-no-repeat bg-top object-cover w-full h-[700px]">
+            <div>
+                <img src="/images/hero-6.jpeg" alt="" class="md:hidden h-[320px] w-full object-cover object-right">
+            </div>
+
+            <div class="  md:pt-56 pt-10     ">
+                <div>
+                    <img src="/images/NT-USB_Mini_PL_PI_01.svg" alt="" class=" md:ml-[120px] w-[500px] ">
+                </div>
+
+                <div class="md:mr-[600px]">
+                    <h2 class="text-white mt-5 md:text-[25px] text-[23px] font-semibold text-center ">
+                        Compact sound
+                        ,
+                        incredibly powerful</h2>
+                    <p class="md:text-[17px] text-[16px] text-gray-300 mt-4 text-center">The NT-USB mini
+                        brings
+                        pristine studio sound yo a compact USB <br>microphone and with the RODE connect unlocking
+                        more
+                        power,
+                        more <br> features , more control it's the perfect recording solution for <br>podcasters,
+                        gamers and
+                        streamers.</p>
+                </div>
+
+                <div class="flex items-center gap-10 mt-10 ml-20 md:ml-[200px] ">
+                    <p class="text-[#ac9870] text-[20px] font-semibold">LEARN MORE ></p>
+                    <button
+                        class="bg-[#ac9870] hover:bg-white hover:text-[#ac9870]  text-white rounded-full border border-[#ac9870] px-6 py-1 text-lg font-semibold">BUY
+                        NOW</button>
+                </div>
+            </div>
+        </div>
+
+        <!------------------------------------------- Explore the RODE range-------------------------------- -->
+
+        <div class="">
+            <div>
+                <h2 class="text-[40px] font-semibold text-center text-gray-500 mt-20">Explore the RODE range
+                </h2>
+            </div>
+
+            <div>
+                <div
+                    class="mt-10 bg-[url('/images/hero-7.png')] bg-center bg-no-repeat bg-top  w-full h-[120px] md:h-[300px]">
+                    <h1 class="text-white text-[30px]  p-10 md:text-[80px] md:p-20 font-semibold text-center">
+                        MICROPHONES</h1>
+                </div>
+
+                <div
+                    class="mt-10 bg-[url('/images/hero-8.jpeg')] bg-center bg-no-repeat bg-top  w-full h-[120px] md:h-[300px]">
+                    <h1 class="text-white text-[30px]  p-10 md:text-[80px] md:p-20 font-semibold text-center">INTERFACES
+                        & MIXERS</h1>
+                </div>
+
+                <div
+                    class="mt-10 bg-[url('/images/hero-9.png')] bg-center bg-no-repeat bg-top  w-full h-[120px] md:h-[300px]">
+                    <h1 class="text-white text-[30px]  p-10 md:text-[80px] md:p-20 font-semibold text-center">SOFTWARE
+                    </h1>
+                </div>
+
+                <div
+                    class="mt-10 bg-[url('/images/hero-10.png')] bg-center bg-no-repeat bg-top  w-full h-[120px] md:h-[300px]">
+                    <h1 class="text-white text-[30px]  p-10 md:text-[80px] md:p-20 font-semibold text-center">
+                        ACCESSORIES</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- --------------------------------------LATEST BLOG ---------------------------------------->
+
+
+        <div>
+            <h1 class="text-[40px] font-semibold text-center text-[#ac9850] mt-20">Latest from the RODE blog</h1>
+        </div>
+
+        <div class="bg-[#f8f9fa] ">
+            <div class=" flex items-center md:flex-row flex-col gap-5  pt-20">
+                <div class="bg-white md:ml-20 pb-10">
+                    <h2 class="text-black text-[25px]  md:text-[30px] mt-5 md:mt-0 text-center font-normal ">XLR vs USB
+                        Microphones :
+                        Which is best <br> for you ?</h2>
+                    <img src="/images/blog-img1.jpg" alt="" class=" mt-5 md:mt-[50px]">
+                    <p class="md:text-[17px] text-[16px]  text-center mt-10">we explore the differences between XLR and
+                        USB
+                        microphones,
+                        the <br>advantage of each and which type is best suited to your needs.</p>
+
+                    <button
+                        class="bg-[#ac9870] hover:bg-white hover:text-[#ac9870] ml-[160px] mt-5 text-white rounded-full border border-[#ac9870] px-6 py-1 text-lg font-semibold">LEARN
+                        MORE</button>
+                </div>
+
+                <div class="bg-white pb-10 ">
+                    <h2 class="text-black text-[25px] mt-5 md:mt-0 md:text-[30px]  text-center font-normal">The
+                        Difference Between Large-
+                        <br>
+                        Diaphragm and Small-Diaphragm <br> Condenser Microphones
+                    </h2>
+                    <img src="/images/blog-img2.jpeg" alt="" class="mt-5 md:mt-0">
+                    <p class="md:text-[17px] text-[16px] text-center mt-10">we explore the differences between XLR and
+                        USB
+                        microphones,
+                        the <br>advantage of each and which type is best suited to your needs.</p>
+
+                    <button
+                        class="bg-[#ac9870] hover:bg-white hover:text-[#ac9870] ml-[160px] mt-5 text-white rounded-full border border-[#ac9870] px-6 py-1 text-lg font-semibold">LEARN
+                        MORE</button>
+                </div>
+            </div>
+
+            <div class=" flex items-center md:flex-row  flex-col gap-5  pt-20">
+                <div class="bg-white md:ml-20  pb-10">
+                    <h2 class="text-black text-[25px]  md:text-[30px]  text-center font-normal ">What is a Condenser
+                        Microphone
+                        and<br> When to Use One.</h2>
+                    <img src="/images/blog-img3.jpg" alt="" class="">
+                    <p class="text-[16px] md:text-[17px]  text-center mt-10">we explore the differences between XLR and
+                        USB
+                        microphones,
+                        the <br>advantage of each and which type is best suited to your needs.</p>
+
+                    <button
+                        class="bg-[#ac9870] hover:bg-white hover:text-[#ac9870] ml-[160px] mt-5 text-white rounded-full border border-[#ac9870] px-6 py-1 text-lg font-semibold">LEARN
+                        MORE</button>
+                </div>
+
+                <div class="bg-white pb-10">
+                    <h2 class="text-black   text-[30px]  text-center font-normal">FirmWare Version 1.0.7 for the
+                        <br>RODECaster Pro II is Available now.
+                    </h2>
+                    <img src="/images/blog-img4.jpg" alt="">
+                    <p class="text-[17px] text-center mt-10">Firmware versions 1.0.7 microphones, the
+                        <br>advantage of
+                        each and which type is best suited to your needs.
+                    </p>
+
+                    <button
+                        class="bg-[#ac9870] hover:bg-white hover:text-[#ac9870] ml-[190px] mt-5 text-white rounded-full border border-[#ac9870] px-6 py-1 text-lg font-semibold">LEARN
+                        MORE</button>
+                </div>
+            </div>
+
+
+
+            <!-- -------------------------------------------------------footer section------------------------- -->
+
+
+            <div class="bg-white  mt-10 md:mt-20 ">
+                <hr class="relative md:top-[150px] top-[50px]">
+
+                <div class="flex items-center md:flex-row  flex-col gap-20">
+                    <div class="mt-[140px]">
+                        <img src="data:image/png;base64,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 "
+                            alt="" class="w-[160px] md:mt-[100px] md:ml-[100px] ">
+
+                        <div class="rounded-full h-[35px] w-[35px] bg-[#ac9970] ml-16 md:ml-[160px] mt-5"></div>
+                    </div>
+                    <div
+                        class="flex items-center md:flex-row flex-col gap-[10px] ml-[300px] md:ml-0 md:gap-[30px] md:mt-[200px] mr-[300px] md:mr-0  md:ml-[30px]">
+                        <div class="md:leading-[35px] cursor-pointer ">
+
+                            <div class="md:hidden h-[1px] w-[400px]   bg-gray-400 mt-5"></div>
+                            <div class=" flex items-center justify-between">
+                                <h2 class="text-lg font-semibold md:ml-0 mt-5 ">Products</h2>
+                                <div class="md:hidden  mt-4">
+                                    <i class="fa-regular fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="md:hidden h-[1px] w-[400px]   bg-gray-400 mt-5"></div>
+
+
+
+                            <p class="text-gray-500 hidden md:block font-semibold ">Microphones</p>
+                            <p class="text-gray-500 hidden md:block font-semibold"> Headphones</p>
+                            <p class="text-gray-500 hidden md:block font-semibold">Interfaces & Mixers</p>
+                            <p class="text-gray-500 hidden md:block font-semibold">Accessories</p>
+                            <p class="text-gray-500 hidden md:block font-semibold"> Software</p>
+                            <p class="text-gray-500 hidden md:block font-semibold">Apparel</p>
+                        </div>
+
+                        <div class="md:leading-[35px] md:relative md:bottom-[40px] cursor-pointer">
+                            <div class=" flex items-center justify-between">
+                                <h2 class="text-lg font-semibold md:ml-0 mt-5 ">Support</h2>
+                                <div class="md:hidden  mt-4">
+                                    <i class="fa-regular fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="md:hidden h-[1px] w-[400px]   bg-gray-400 mt-5"></div>
+
+                            <p class="text-gray-500 hidden md:block font-semibold">Contact RODE</p>
+                            <p class="text-gray-500 hidden md:block font-semibold"> Service centre</p>
+                            <p class="text-gray-500 hidden md:block font-semibold">Warranty</p>
+                            <p class="text-gray-500 hidden md:block font-semibold">Where to buy</p>
+
+                        </div>
+
+                        <div class="md:leading-[35px] md:ml-5   cursor-pointer">
+                            <div class="  flex items-center justify-between">
+                                <h2 class="text-lg font-semibold md:ml-0 mt-5 ">Company</h2>
+                                <div class="md:hidden  mt-4">
+                                    <i class="fa-regular fa-plus"></i>
+                                </div>
+                            </div>
+                            <div class="md:hidden h-[1px] w-[400px]   bg-gray-400 mt-5"></div>
+
+                            <p class="text-gray-500 hidden md:block font-semibold">About RODE</p>
+                            <p class="text-gray-500 hidden md:block font-semibold"> News & info</p>
+                            <p class="text-gray-500 hidden md:block font-semibold">Job Opportunities</p>
+
+                            <div class="md:leading-[35px] cursor-pointer">
+
+
+                                <div class=" flex items-center justify-between">
+                                    <h2 class="text-lg font-semibold md:ml-0 mt-5 ">Account</h2>
+                                    <div class="md:hidden mt-4">
+                                        <i class="fa-regular fa-plus"></i>
+                                    </div>
+                                </div>
+                                <div class="md:hidden h-[1px] w-[400px]   bg-gray-400 mt-5"></div>
+
+                                <p class="text-gray-500 hidden md:block font-semibold">Manage your account </p>
+                                <p class="text-gray-500 hidden md:block font-semibold"> Create account</p>
+                            </div>
+
+                        </div>
+
+                        <div class="ml-5">
+                            <h2
+                                class="md:text-[20px] text-[23px] mt-10 md:mt-0 md:mr-[110px] text-center font-semibold ">
+                                Subscribe to our latest
+                                news
+                                <br> and
+                                offers
+                            </h2>
+                            <button
+                                class="bg-[#ac9870]  mt-5 ml-[90px] md:ml-16 hover:bg-white text-white hover:text-[#ac9870] rounded-full border px-6 py-1 text-lg font-semibold">Sign
+                                Up</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <hr class="mt-10 mx-20 bg-gray-600">
+
+                <div
+                    class="flex items-center md:flex-row flex-col-reverse justify-between ml-20 mt-10 md:mt-16 pb-10 mr-[70px]">
+                    <div>
+
+
+                        <div class="flex items-center md:flex-row flex-col-reverse gap-5 md:gap-[280px]">
+
+                            <div>
+                                <p class="font-semibold">2022 RODE All Rights Reserved</p>
+
+                            </div>
+
+                            <div>
+                                <p class="md:text-[14px] text-[12px] mt-5 md:mt-0">Privacy Policy | Terms & Conditions
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="flex items-center gap-10 md:mr-20 cursor-pointer">
+                        <div class="text-[#ac9870] ">
+                            <i class="fa-brands fa-facebook"></i>
+                        </div>
+
+                        <div class="text-[#ac9870]">
+                            <i class="fa-brands fa-twitter"></i>
+                        </div>
+
+                        <div class="text-[#ac9870]">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+
+                        <div class="text-[#ac9870]">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
