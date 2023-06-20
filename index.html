@@ -28,13 +28,13 @@
 <body class="">
     <!-------------------------------------- Header------------------------------ -->
 
-    <div class="md:border md:flex items-center md:justify-between  ">
-        <div class="flex flex-row gap-[6px] items-center  md:ml-[150px] ">
+    <div class=" hidden md:border md:flex items-center md:justify-between  ">
+        <div class="flex flex-row gap-[5px] items-center  ml-[125px] ">
             <div>
-                <i class="fa-solid fa-location-dot text-gray-600 ml-20 md:ml-0 mt-5 md:mt-0  "></i>
+                <i class="fa-solid fa-location-dot text-gray-600 ml-20 md:ml-0   "></i>
             </div>
             <div>
-                <h5 class="text-gray-700 after:content-['🢓'] after:ml-1 mt-5 md:mt-0">EN</h5>
+                <h5 class="text-gray-700 after:content-['🢓'] after:ml-1 ">EN</h5>
 
             </div>
         </div>
@@ -46,53 +46,72 @@
 
     <!-- ----------------------------------Navbar---------------------------------- -->
 
-    <div class="flex items-center justify-around  sticky top-0 md:bg-white bg-[#f4f9fa]  md:pt-8  pb-7">
-        <div class="">
+    <div class="flex flex-row items-center justify-around  sticky top-0 md:bg-white bg-[#f4f9fa] pt-4  md:pt-8  pb-7">
 
+        <div class="md:hidden ml-[-20px] "><i class="fa-solid fa-bars"></i></div>
+        <div class="md:hidden flex flex-row  items-center gap-1 ml-[-30px]">
+            <div class="text-gray-500 "><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+                <h5 class="text-gray-700 after:content-['🢓'] after:ml-1  md:mt-0">EN</h5>
+            </div>
+        </div>
+
+        <div>
             <img src="data:image/png;base64,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 "
                 alt="" class="w-[100px]  bg-[#f8f9fa]   md:ml-0 ">
         </div>
 
         <div class="flex flex-row items-center  gap-[30px] text-[20px] font-semibold text-gray-500">
-            <p class="hidden md:block">Products</p>
-            <p class="hidden md:block">User Guides</p>
-            <p class="hidden md:block">Solutions</p>
-            <p class="hidden md:block">Apparel</p>
-            <p class="hidden md:block">Support</p>
+            <a class="hidden md:block" href="">Products</a>
+            <a class="hidden md:block" href="">User Guides</a>
+            <a class="hidden md:block" href="">Solutions</a>
+            <a class="hidden md:block" href="">Apparel</a>
+            <a class="hidden md:block" href="">Support</a>
+
+
         </div>
+
         <div>
             <i class="fa-solid fa-magnifying-glass  mr-5 md:mr-0  "></i>
         </div>
 
     </div>
+
+
+
+
     <!-- --------------------------------------Resolution------------------------------ -->
 
-    <area shape="" coords="" href="" alt="">
+
     <div
-        class="bg-black text-white items-center   md:bg-[url('/images/hero-1.jpeg')] bg-center bg-no-repeat bg-top object-cover w-[800px]  md:w-full h-[700px]">
+        class=" bg-black text-white items-center   md:bg-[url('/images/hero-1.jpeg')] bg-center bg-no-repeat bg-top object-cover w-full  md:w-full h-[700px]">
 
         <div>
-            <img src="/images/hero-1.jpeg" alt class="md:hidden h-[320px] w-full object-cover object-right">
+            <img src="/images/hero-1.jpeg" alt class="md:hidden h-[320px] w-full object-cover object-left">
         </div>
 
 
-        <div class="  md:pt-40 pt-4 md:ml-[600px]  ">
 
-            <div>
-                <img src="/images/RODECasterProII_PL_PI_01.svg" alt="" class=" w-[490px] md:w-[500px] md:ml-[130px] ">
-            </div>
 
-            <div class=" mr-[300px] md:mr-0  ">
+        <div class=" flex   ">
+            <div class="md:w-1/2"></div>
+
+            <div class=" md:pt-56 pt-4   md:mr-0  ">
+                <div>
+                    <img src="/images/RODECasterProII_PL_PI_01.svg" alt=""
+                        class=" w-[490px] md:w-[500px] md:ml-[60px] ">
+                </div>
 
 
                 <h2 class="text-white mt-5  text-[30px] text-center font-semibold  ">The Revolution is Here</h2>
-                <p class="md:text-[17px] text-[15px] mt-5  text-center text-gray-300   ">The RODECaster Pro II is the world's most
+                <p class="md:text-[17px] text-[15px] mt-5  text-center text-gray-300   ">The RODECaster Pro II is the
+                    world's most
                     powerful
                     all-in-one <br>audio solution for streamers,podcasters,musicians,and <br>creators. Take your content
                     to the next level.</p>
 
-                <div class="flex items-center gap-10 mt-5 ml-[100px] md:ml-0  ">
-                    <p class="text-[#ac9870] text-[20px] md:ml-[200px] font-semibold">LEARN MORE ></p>
+                <div class="flex items-center justify-center   pb-3 md:pb-0 gap-10 mt-5 ml-[40px] md:ml-0  ">
+                    <p class="text-[#ac9870] text-[20px]  font-semibold">LEARN MORE ></p>
                     <button
                         class="bg-[#ac9870] border-[#ac9870]  hover:bg-white text-white hover:text-[#ac9870] rounded-full border px-6 py-1 text-lg font-semibold">BUY
                         NOW</button>
@@ -114,12 +133,13 @@
 
 
 
+<div class="flex">
+    
 
-
-        <div class="md:mr-[550px]  md:pt-56 pt-10   ">
+        <div class=" md:ml-[100px]  md:pt-56 pt-10   ">
 
             <div>
-                <img src="/images/NTH-100_PL_P_RGB_01.svg" alt="" class="md:w-[500px] w-[400px] md:ml-[130px] ml-10">
+                <img src="/images/NTH-100_PL_P_RGB_01.svg" alt="" class="md:w-[500px] w-[400px] md:ml-[50px] ml-10">
             </div>
 
             <h2 class="text-black mt-5 md:text-[25px] text-[27px] text-center md:ml-0 font-semibold ">
@@ -131,23 +151,29 @@
                 creativity.
             </p>
 
-            <div class="flex items-center gap-10 mt-5 ml-[100px] md:ml-[250px]">
+            <div class="flex items-center justify-center   pb-3 md:pb-0 gap-10 mt-5 ml-[60px] md:ml-[60px]">
                 <p class="text-[#ac9870] text-[20px]  font-semibold">LEARN MORE ></p>
                 <button
                     class="bg-[#ac9870] border-[#ac9870] hover:bg-white text-white hover:text-[#ac9870] rounded-full border px-6 py-1 text-lg font-semibold">BUY
                     NOW</button>
             </div>
         </div>
+    </div>
 
 
 
         <!-- ------------------------------------------NT-USB-------------------------------- -->
 
-        <div class="bg-[url('/images/hero-3.jpeg')]  bg-center bg-no-repeat bg-top object-cover mt-20 w-full h-[400px] md:h-[700px]">
-            <div class=" md:ml-[700px] md:pt-40 pt-4   ">
+        <div
+            class="bg-[url('/images/hero-3.jpeg')]  bg-center bg-no-repeat bg-top object-cover mt-20 w-full h-[400px] md:h-[700px]">
+
+            <div class="flex">
+                <div class="md:w-1/2"></div>
+
+            <div class=" md:pt-40 pt-4 md:ml-20   ">
 
                 <div class="mt-[60px]">
-                    <img src="/images/NT-USB_PL_P_01.svg" alt="" class="w-[500px] md:ml-[70px] ">
+                    <img src="/images/NT-USB_PL_P_01.svg" alt="" class="w-[500px] md:ml-[30px] ">
                 </div>
 
                 <h2 class="text-black mt-5 text-[23px] font-semibold text-center ">
@@ -159,13 +185,14 @@
                     features all
                     in <br>an easy-to-use factor , The NT-USB will have you sounding like <br>a pro in seconds. </p>
 
-                <div class="flex items-center gap-10 ml-[100px] md:ml-[170px] mt-5">
+                <div class="flex items-center gap-10 ml-[100px] md:ml-[150px] mt-5">
                     <p class="text-[#ac9870] text-[20px] font-semibold">LEARN MORE ></p>
                     <button
                         class="bg-[#ac9870] hover:bg-white text-white hover:text-[#ac9870] rounded-full border px-6 py-1 text-lg font-semibold">BUY
                         NOW</button>
                 </div>
             </div>
+        </div>
 
         </div>
 
@@ -177,14 +204,15 @@
                 <img src="/images/hero-4.jpeg" alt="" class="md:hidden h-[320px] w-full object-cover object-right">
             </div>
 
-            <div class="  md:pt-40 pt-4   ">
+            <div class="flex">
+            <div class=" md:ml-20 md:pt-40 pt-4   ">
 
 
                 <div>
-                    <img src="/images/PodMic_PL_PI_01.svg" alt="" class=" mr-20 md:ml-[120px] w-[500px] ">
+                    <img src="/images/PodMic_PL_PI_01.svg" alt="" class="   w-[500px] ">
                 </div>
 
-                <div class="md:mr-[600px]">
+                <div class="">
 
                     <h2 class="text-white mt-10 text-[25px] font-semibold text-center ">Studio-Quality
                         Recording , Made simple</h2>
@@ -196,13 +224,14 @@
                         in <br>an easy-to-use factor , The NT-USB will have you sounding like <br>a pro in seconds.
                     </p>
                 </div>
-                <div class="flex items-center gap-10 mt-10 ml-20 md:ml-[220px] ">
+                <div class="flex items-center gap-10 mt-10 ml-20  ">
                     <p class="text-[#ac9870] text-[20px] font-semibold">LEARN MORE ></p>
                     <button
                         class="bg-[#ac9870] hover:bg-white hover:text-[#ac9870] text-white rounded-full border border-[#ac9870] px-6 py-1 text-lg font-semibold">BUY
                         NOW</button>
                 </div>
             </div>
+        </div>
         </div>
 
         <!-- -----------------------------------------Wireless GO II------------------------------------ -->
@@ -217,11 +246,12 @@
 
 
 
-
-            <div class="md:ml-[700px] md:pt-56 pt-4   ">
+<div class="flex">
+    <div class="md:w-1/2"></div>
+            <div class="md:ml-20 md:pt-56 pt-4   ">
 
                 <div>
-                    <img src="/images/WIGO_II_PL_PI_01.svg" alt="" class=" md:ml-[70px] w-[500px] ">
+                    <img src="/images/WIGO_II_PL_PI_01.svg" alt="" class=" md:ml-[40px] w-[500px] ">
                 </div>
 
                 <h2 class="text-white mt-10 text-[25px] font-semibold text-center ">Next
@@ -235,7 +265,7 @@
                     </ultra-br>
                 </p>
 
-                <div class="flex items-center gap-10 mt-10 ml-20 md:ml-[170px]">
+                <div class="flex items-center gap-10 mt-10 ml-20 md:ml-[150px] ">
                     <p class="text-[#ac9870] text-[20px] font-semibold">LEARN MORE ></p>
                     <button
                         class="bg-[#ac9870] hover:bg-white hover:text-[#ac9870]  text-white rounded-full border border-[#ac9870] px-6 py-1 text-lg font-semibold">BUY
@@ -243,6 +273,7 @@
                 </div>
 
             </div>
+        </div>
         </div>
 
         <!-- -----------------------------------------NT-USB-mini--------------------------------------------- -->
@@ -253,12 +284,13 @@
                 <img src="/images/hero-6.jpeg" alt="" class="md:hidden h-[320px] w-full object-cover object-right">
             </div>
 
-            <div class="  md:pt-56 pt-10     ">
+            <div class="flex">
+            <div class=" md:ml-20 md:pt-56 pt-10 ">
                 <div>
-                    <img src="/images/NT-USB_Mini_PL_PI_01.svg" alt="" class=" md:ml-[120px] w-[500px] ">
+                    <img src="/images/NT-USB_Mini_PL_PI_01.svg" alt="" class="  w-[500px] ">
                 </div>
 
-                <div class="md:mr-[600px]">
+                <div class="">
                     <h2 class="text-white mt-5 md:text-[25px] text-[23px] font-semibold text-center ">
                         Compact sound
                         ,
@@ -273,13 +305,14 @@
                         streamers.</p>
                 </div>
 
-                <div class="flex items-center gap-10 mt-10 ml-20 md:ml-[200px] ">
+                <div class="flex items-center gap-10 mt-10 ml-20 md:ml-[100px] ">
                     <p class="text-[#ac9870] text-[20px] font-semibold">LEARN MORE ></p>
                     <button
                         class="bg-[#ac9870] hover:bg-white hover:text-[#ac9870]  text-white rounded-full border border-[#ac9870] px-6 py-1 text-lg font-semibold">BUY
                         NOW</button>
                 </div>
             </div>
+        </div>
         </div>
 
         <!------------------------------------------- Explore the RODE range-------------------------------- -->
